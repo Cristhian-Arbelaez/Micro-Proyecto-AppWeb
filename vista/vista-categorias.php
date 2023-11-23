@@ -3,13 +3,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Proveedores</h1>
+                <h1 class="m-0">Categorías</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#"
                             onclick="CargarContenidoPagina('vista/dashboard.php','content-wrapper')">Inicio</a></li>
-                    <li class="breadcrumb-item active">Proveedores</li>
+                    <li class="breadcrumb-item active">Categorías</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,13 +45,13 @@
                             <div class="col-lg-12 d-lg-flex">
 
                                 <div style="width: 20%;" class="form-floating mx-1">
-                                    <input type="number" id="ID_Proveedor" class="form-control" data-index="1">
-                                    <label for="ID_Proveedor">ID Proveedor</label>
+                                    <input type="number" id="ID_Categoria" class="form-control" data-index="1">
+                                    <label for="ID_Categoria">ID Categoría</label>
                                 </div>
 
                                 <div style="width: 20%;" class="form-floating mx-1">
-                                    <input type="text" id="Nombre_Proveedor" class="form-control" data-index="2">
-                                    <label for="Nombre_Proveedor">Nombre Proveedor</label>
+                                    <input type="text" id="Nombre_Categoria" class="form-control" data-index="2">
+                                    <label for="Nombre_Categoria">Nombre Categoría</label>
                                 </div>
 
                             </div>
@@ -65,15 +65,15 @@
         </div>
 
 
-        <!-- row para listado de proveedores/inventario -->
+        <!-- row para listado de categorías -->
         <div class="row">
             <div class="col-lg-12">
-                <table id="tbl_proveedores" class="table table-striped w-100 shadow">
+                <table id="tbl_categorias" class="table table-striped w-100 shadow">
                     <thead class="bg-info">
                         <tr style="font-size: 15px;">
                             <th></th>
-                            <th>ID Proveedor</th>
-                            <th>Nombre Proveedor</th>
+                            <th>ID Categorías</th>
+                            <th>Nombre Categoría</th>
                             <th>Fecha Creación</th>
                             <th class="text-cetner">Opciones</th>
                         </tr>
@@ -89,14 +89,14 @@
 <!-- /.content -->
 
 <!-- VENTANA MODAL PARA AGREGAR PROVEEDOR -->
-<div class="modal fade" id="mdlAgregarProveedor" role="dialog">
+<div class="modal fade" id="mdlAgregarCategoria" role="dialog">
 
     <div class="modal-dialog modal-lg">
 
         <div class="modal-content">
 
             <div class="modal-header bg-gray py-1 align-items-center">
-                <h5 class="modal-title">Agregar Proveedor</h5>
+                <h5 class="modal-title">Agregar Categoría</h5>
                 <button type="button" class="btn btn-outline-primary text-white border-0 fs-5" id="btnCerrarModal"
                     data-bs-dismiss="modal">
                     <i class="far fa-times-circle"></i>
@@ -110,21 +110,21 @@
 
                         <div class="col-lg-4">
                             <div class="form-group mb-2">
-                                <label class="" for="iptNombreProveedor"><i class="fas fa-file-signature fs-6"></i>
-                                    <span class="small">Nombre Del Proveedor</span><span class="text-danger">*</span>
+                                <label class="" for="iptNombreCategoria"><i class="fas fa-file-signature fs-6"></i>
+                                    <span class="small">Nombre De La Categoría</span><span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="iptNombreProveedor"
-                                    placeholder="Nombre Del Proveedor" required>
-                                <div class="invalid-feedback">Ingrese El Nombre Del Proveedor</div>
+                                <input type="text" class="form-control form-control-sm" id="iptNombreCategoria"
+                                    placeholder="Nombre De La Categoría" required>
+                                <div class="invalid-feedback">Ingrese El Nombre De La Categoría</div>
                             </div>
                         </div>
 
                         <div class="col-lg-8">
                             <div class="form-group mb-2">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                    id="btnCancelarRegistroProveedor">Cancelar</button>
+                                    id="btnCancelarRegistroCategoria">Cancelar</button>
                                 <button type="button" class="btn btn-primary"
-                                    id="btnGuardarRegistroProveedor">Guardar</button>
+                                    id="btnGuardarRegistroCategoria">Guardar</button>
                             </div>
                         </div>
 
@@ -137,41 +137,45 @@
 <!-- VENTANA MODAL PARA AGREGAR PROVEEDOR -->
 
 <!-- VENTANA MODAL PARA ACTUALIZACION -->
-<div class="modal fade" id="mdlActualizarProveedor">
+<div class="modal fade" id="mdlAgregarCategoria" role="dialog">
+
     <div class="modal-dialog modal-lg">
+
         <div class="modal-content">
 
             <div class="modal-header bg-gray py-1 align-items-center">
-                <h5 class="modal-title">Actualizar Proveedor</h5>
+                <h5 class="modal-title">Agregar Categoría</h5>
                 <button type="button" class="btn btn-outline-primary text-white border-0 fs-5" id="btnCerrarModal"
                     data-bs-dismiss="modal">
                     <i class="far fa-times-circle"></i>
                 </button>
             </div>
+
             <div class="modal-body">
+
                 <form class="needs-validation" novalidate>
                     <div class="row">
+
                         <div class="col-lg-4">
                             <div class="form-group mb-2">
-
-                                <input type="hidden" id="ipt_ID_Proveedor" value="">
-                                <label class="" for="iptNombreProveedor2"><i class="fas fa-file-signature fs-6"></i>
-                                    <span class="small">Nombre Del Proveedor</span><span class="text-danger">*</span>
+                                <label class="" for="iptNombreCategoria"><i class="fas fa-file-signature fs-6"></i>
+                                    <span class="small">Nombre De La Categoría</span><span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="iptNombreProveedor2"
-                                    placeholder="Nombre Del Proveedor" required>
-                                <div class="invalid-feedback">Ingrese El Nombre Del Proveedor</div>
+                                <input type="text" class="form-control form-control-sm" id="iptNombreCategoria"
+                                    placeholder="Nombre De La Categoría" required>
+                                <div class="invalid-feedback">Ingrese El Nombre De La Categoría</div>
                             </div>
                         </div>
 
                         <div class="col-lg-8">
                             <div class="form-group mb-2">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                    id="btnCancelarRegistroProveedor">Cancelar</button>
+                                    id="btnCancelarRegistroCategoria">Cancelar</button>
                                 <button type="button" class="btn btn-primary"
-                                    id="btnActualizarRegistroProveedor">Actualizar</button>
+                                    id="btnGuardarRegistroCategoria">Guardar</button>
                             </div>
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -198,9 +202,9 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: "ajax/proveedores.ajax.php",
+            url: "ajax/categorias.ajax.php",
             type: "POST",
-            data: { 'accion': 4 }, //1: LISTAR PROveedore
+            data: { 'accion': 7 }, //1: LISTAR PROveedore
             dataType: 'json',
             success: function (respuesta) {
                 console.log("respuesta", respuesta);
@@ -208,16 +212,16 @@
         });
 
 
-        table = $("#tbl_proveedores").DataTable({
+        table = $("#tbl_categorias").DataTable({
 
             dom: 'Bfrtip',
             buttons: [{
-                text: 'Agregar Proveedor',
+                text: 'Agregar Categoría',
                 className: 'addNewRecord',
                 action: function (e, dt, node, config) {
                     //EVENTO PARA LEVENTAR LA VENTA MODAL
-                    $("#mdlAgregarProveedor").modal('show');
-                    accion = 5;
+                    $("#mdlAgregarCategoria").modal('show');
+                    accion = 8;
                 }
             }, 'pageLength'
             ],
@@ -225,10 +229,10 @@
             pageLength: 10,
 
             ajax: {
-                url: "ajax/proveedores.ajax.php",
+                url: "ajax/categorias.ajax.php",
                 dataSrc: '',
                 type: "POST",
-                data: { 'accion': 4 }, //1: LISTAR PROveedores
+                data: { 'accion': 7 }, //1: LISTAR PROveedores
             },
 
             responsive: {
@@ -247,10 +251,10 @@
                     orderable: false,
                     render: function (data, type, full, meta) {
                         return "<center>" +
-                            "<span class='btnEditarProveedor text-primary px-1' style='cursor:pointer;'>" +
+                            "<span class='btnEditarCategoria text-primary px-1' style='cursor:pointer;'>" +
                             "<i class='fas fa-pencil-alt fs-5'></i>" +
                             "</span>" +
-                            "<span class='btnEliminarProveedor text-danger px-1' style='cursor:pointer;'>" +
+                            "<span class='btnEliminarCategoria text-danger px-1' style='cursor:pointer;'>" +
                             "<i class='fas fa-trash fs-5'></i>" +
                             "</span>" +
                             "</center>"
@@ -264,27 +268,27 @@
         });
 
 
-        $("#ID_Proveedor").keyup(function () {
+        $("#ID_Categoria").keyup(function () {
             table.column($(this).data('index')).search(this.value).draw();
         })
 
-        $("#Nombre_Proveedor").keyup(function () {
+        $("#Nombre_Categoria").keyup(function () {
             table.column($(this).data('index')).search(this.value).draw();
         })
 
         $("#btnLimpiarBusqueda").on('click', function () {
 
-            $("#ID_Proveedor").val('')
-            $("#Nombre_Proveedor").val('')
+            $("#ID_Categoria").val('')
+            $("#Nombre_Categoria").val('')
 
             table.search('').columns().search('').draw();
         })
 
-        $('#tbl_proveedores tbody').on('click', '.btnEditarProveedor', function () {
+        $('#tbl_categorias tbody').on('click', '.btnEditarCategoria', function () {
 
-            $("#mdlActualizarProveedor").modal('show');
+            $("#mdlActualizarCategoria").modal('show');
             var data = table.row($(this).parents('tr')).data();
-            accion = 6;
+            accion = 9;
 
             $("#ipt_ID_Proveedor").val(data[1]);
             $("#iptNombreProveedor2").val(data[2]);
@@ -294,34 +298,34 @@
 
     })
 
-    document.getElementById("btnGuardarRegistroProveedor").addEventListener("click", function () {
+    document.getElementById("btnGuardarRegistroCategoria").addEventListener("click", function () {
 
         var form = document.getElementsByClassName('needs-validation');
         var validation = Array.prototype.filter.call(form, function (form) {
             if (form.checkValidity() === true) {
-                console.log("Listo Para Registrar El Proveedor")
+                console.log("Listo Para Registrar La Categoría")
 
                 Swal.fire({
-                    title: 'Esta Seguro De Registrar Este Proveedor?',
+                    title: 'Esta Seguro De Registrar Esta Categoría?',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Deseo Registrarlo',
+                    confirmButtonText: 'Si, Deseo Registrarla',
                     cancelButtonText: 'Cancelar',
                 }).then((result) => {
 
                     if (result.isConfirmed) {
                         var datos = new FormData();
                         datos.append("accion", accion);
-                        datos.append("Nombre", $("#iptNombreProveedor").val());
+                        datos.append("Nombre", $("#iptNombreCategoria").val());
 
-                        if (accion == 5) {
-                            var titulo_msj = "El Proveedor Se Agrego Correctamente"
+                        if (accion == 8) {
+                            var titulo_msj = "La Categoría Se Agrego Correctamente"
                         }
 
                         $.ajax({
-                            url: "ajax/proveedores.ajax.php",
+                            url: "ajax/categorias.ajax.php",
                             method: "POST",
                             data: datos,
                             cache: false,
@@ -337,15 +341,15 @@
 
                                     table.ajax.reload();
 
-                                    $("#mdlAgregarProveedor").modal('hide');
+                                    $("#mdlAgregarCategoria").modal('hide');
 
-                                    $("#iptNombreProveedor").val("");
+                                    $("#iptNombreCategoria").val("");
 
 
                                 } else {
                                     Toast.fire({
                                         icon: 'error',
-                                        title: 'El Proveedor No Fue Agregado'
+                                        title: 'La Categoría No Fue Agregado'
                                     });
                                 }
                             }
@@ -437,7 +441,7 @@
 
 
 
-    document.getElementById("btnCancelarRegistroProveedor").addEventListener("click", function () {
+    document.getElementById("btnCancelarRegistroCategoria").addEventListener("click", function () {
         $(".needs-validation").removeClass("was-validated");
     })
 

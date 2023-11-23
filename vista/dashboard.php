@@ -22,39 +22,6 @@
 
       <!-- Fila Totales-->
         <div class="row">
-
-            <div class="col-lg-4">
-                <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-
-                  <h2>Listas De Compras</h2>
-                  <h3 id="total_lista_compras">?</h3>
-
-                </div>
-                <div class="icon">
-                  <i class="ion ion-clipboard"></i>
-                </div>
-                <a style="cursor:pointer;" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-                <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-
-                  <h2>Listas De Productos</h2>
-                  <h3 id="total_lista_productos">?</h3>
-
-                </div>
-                <div class="icon">
-                  <i class="ion ion-compose"></i>
-                </div>
-                <a style="cursor:pointer;" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-
             <div class="col-lg-4">
                 <!-- small box -->
               <div class="small-box bg-info">
@@ -67,7 +34,23 @@
                 <div class="icon">
                   <i class="ion ion-beer"></i>
                 </div>
-                <a style="cursor:pointer;" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+                <a style="cursor:pointer;" class="small-box-footer" onclick="CargarContenidoPagina('vista/vista-productos.php','content-wrapper')">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+
+                  <h2>Total de Categorías</h2>
+                  <h3 id="total_categorias">?</h3>
+
+                </div>
+                <div class="icon">
+                  <i class="ion ion-compose"></i>
+                </div>
+                <a style="cursor:pointer;" class="small-box-footer" onclick="CargarContenidoPagina('vista/vista-categorias.php','content-wrapper')">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
 
@@ -83,7 +66,7 @@
                 <div class="icon">
                   <i class="ion ion-person-stalker"></i>
                 </div>
-                <a style="cursor:pointer;" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+                <a style="cursor:pointer;" class="small-box-footer" onclick="CargarContenidoPagina('vista/vista-proveedores.php','content-wrapper')">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
 
@@ -101,9 +84,8 @@
           dataType: 'json',
           success:function(respuesta){
             console.log("respuesta",respuesta);
-            $("#total_lista_compras").html(respuesta[0]['total_lista_compras']);
-            $("#total_lista_productos").html(respuesta[0]['total_lista_productos']);
             $("#total_productos").html(respuesta[0]['total_productos']);
+            $("#total_categorias").html(respuesta[0]['total_categorias']);
             $("#total_proveedores").html(respuesta[0]['total_proveedores']);
           }
         });
@@ -117,9 +99,8 @@
           dataType: 'json',
           success:function(respuesta){
             console.log("respuesta",respuesta);
-            $("#total_lista_compras").html(respuesta[0]['total_lista_compras']);
-            $("#total_lista_productos").html(respuesta[0]['total_lista_productos']);
             $("#total_productos").html(respuesta[0]['total_productos']);
+            $("#total_categorias").html(respuesta[0]['total_categorias']);
             $("#total_proveedores").html(respuesta[0]['total_proveedores']);
           }
         });

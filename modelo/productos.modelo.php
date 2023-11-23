@@ -5,7 +5,8 @@ class ProductosModelo
     static public function mdlListarProductos()
     {
 
-        $stmt = Conexion::conectar()->prepare('call prc_ListarProductos()');
+        $stmt = Conexion::conectar()->prepare("SELECT '' as detalles, p.ID_Producto, p.Nombre, p.Precio, c.Nombre as Nombre_Categoria, pro.Nombre as Nombre_Proveedor, p.Fecha, '' as opciones 
+FROM producto p INNER JOIN categoria c on p.ID_Categoria = c.ID_Categoria INNER JOIN proveedor pro on p.ID_Proveedor = pro.ID_Proveedor AND p.Precio > 0 ORDER BY p.ID_Producto DESC; EN");
 
         $stmt->execute();
 
@@ -13,18 +14,19 @@ class ProductosModelo
 
     }
 
-    static public function mdlAgregarProducto($Nombre, $Precio, $ID_Provedor)
+    static public function mdlAgregarProducto($Nombre, $Precio, $ID_Provedor, $ID_Categoria)
     {
         try {
             $fecha_actual = date('Y-m-d');
             $idproducto = null;
-            $stmt = Conexion::conectar()->prepare("INSERT INTO producto (ID_Producto, Nombre, Precio, ID_Proveedor, Fecha) 
-                VALUES (:ID_Producto, :Nombre, :Precio, :ID_Proveedor, :Fecha)");
+            $stmt = Conexion::conectar()->prepare("INSERT INTO producto (ID_Producto, Nombre, Precio, ID_Proveedor, ID_Categoria,  Fecha) 
+                VALUES (:ID_Producto, :Nombre, :Precio, :ID_Proveedor, :ID_Categoria, :Fecha)");
 
             $stmt->bindParam(":ID_Producto", $idproducto, PDO::PARAM_STR);
             $stmt->bindParam(":Nombre", $Nombre, PDO::PARAM_STR);
             $stmt->bindParam(":Precio", $Precio, PDO::PARAM_STR);
             $stmt->bindParam(":ID_Proveedor", $ID_Provedor, PDO::PARAM_STR);
+            $stmt->bindParam(":ID_Categoria", $ID_Categoria, PDO::PARAM_STR);
             $stmt->bindParam(":Fecha", $fecha_actual, PDO::PARAM_STR);
 
             if ($stmt->execute()) {

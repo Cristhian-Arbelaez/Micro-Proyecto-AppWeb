@@ -13,9 +13,10 @@ class ProveedoresModelo
 
     }
 
-    static public function mdlListarProductos2()
+    static public function mdlListarProveedores2()
     {
-        $stmt = Conexion::conectar()->prepare('call prc_ListarProveedores()');
+        $stmt = Conexion::conectar()->prepare("SELECT '' as detalles, pro.ID_Proveedor, pro.Nombre, pro.Fecha, '' as opciones 
+                                               FROM proveedor pro ORDER BY pro.ID_Proveedor DESC");
         $stmt->execute();
         return $stmt->fetchAll();
 

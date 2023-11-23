@@ -10,13 +10,10 @@
         <a style="cursor: pointer;" class="nav-link active" onclick="CargarContenidoPagina('vista/dashboard.php','content-wrapper')">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a style="cursor: pointer;" class="nav-link" onclick="CargarContenidoPagina('vista/vista-listas-compras.php','content-wrapper')">Listas de Compras</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a style="cursor: pointer;" class="nav-link" onclick="CargarContenidoPagina('vista/vista-listas-productos.php','content-wrapper')">Listas de Productos</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
         <a style="cursor: pointer;" class="nav-link" onclick="CargarContenidoPagina('vista/vista-productos.php','content-wrapper')">Productos</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a style="cursor: pointer;" class="nav-link" onclick="CargarContenidoPagina('vista/vista-categorias.php','content-wrapper')">Categorias</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a style="cursor: pointer;" class="nav-link" onclick="CargarContenidoPagina('vista/vista-proveedores.php','content-wrapper')">Proveedores</a>

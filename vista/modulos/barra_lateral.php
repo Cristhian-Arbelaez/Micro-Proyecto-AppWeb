@@ -2,9 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="" class="brand-link">
-    <img src="vista/css/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <img src="vista/css/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-2"
       style="opacity: .8">
-    <span>Listas de Compras</span>
+    <span>Productos</span>
   </a>
 
   <!-- Sidebar -->
@@ -26,30 +26,20 @@
 
         <li class="nav-item">
           <a style="cursor: pointer;" class="nav-link"
-            onclick="CargarContenidoPagina('vista/vista-listas-compras.php','content-wrapper')">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Listas de Compras
-            </p>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a style="cursor: pointer;" class="nav-link"
-            onclick="CargarContenidoPagina('vista/vista-listas-productos.php','content-wrapper')">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Listas de Productos
-            </p>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a style="cursor: pointer;" class="nav-link"
             onclick="CargarContenidoPagina('vista/vista-productos.php','content-wrapper')">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Productos
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a style="cursor: pointer;" class="nav-link"
+            onclick="CargarContenidoPagina('vista/vista-categorias.php','content-wrapper')">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Categorias
             </p>
           </a>
         </li>

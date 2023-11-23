@@ -21,7 +21,7 @@
 <div class="content">
     <div class="container-fluid">
 
-        <!-- row para criterios de busqueda -->
+        <!-- Criterios de Busqueda -->
         <div class="row">
 
             <div class="col-lg-12">
@@ -36,8 +36,8 @@
                             <button type="button" class="btn btn-tool text-danger" id="btnLimpiarBusqueda">
                                 <i class="fas fa-trash fs-5"></i>
                             </button>
-                        </div> <!-- ./ end card-tools -->
-                    </div> <!-- ./ end card-header -->
+                        </div> 
+                    </div> 
                     <div class="card-body">
 
                         <div class="row">
@@ -45,7 +45,7 @@
                             <div class="col-lg-12 d-lg-flex">
 
                                 <div style="width: 20%;" class="form-floating mx-1">
-                                    <input type="text" id="ID_Producto" class="form-control" data-index="1">
+                                    <input type="number" id="ID_Producto" class="form-control" data-index="1">
                                     <label for="ID_Producto">ID Producto</label>
                                 </div>
 
@@ -55,19 +55,21 @@
                                 </div>
 
                                 <div style="width: 20%;" class="form-floating mx-1">
-                                    <input type="text" id="ID_Proveedor" class="form-control" data-index="4">
-                                    <label for="ID_Proveedor">ID Proveedor</label>
-                                </div>
-
-                                <div style="width: 20%;" class="form-floating mx-1">
                                     <input type="text" id="Proveedor" class="form-control" data-index="5">
                                     <label for="Proveedor">Nombre Proveedor</label>
                                 </div>
 
                                 <div style="width: 20%;" class="form-floating mx-1">
-                                    <input type="text" id="Precio" class="form-control" data-index="3">
+                                    <input type="text" id="Categoria" class="form-control" data-index="4">
+                                    <label for="Categoria">Categoría</label>
+                                </div>
+
+                                <div style="width: 20%;" class="form-floating mx-1">
+                                    <input type="number" id="Precio" class="form-control" data-index="3">
                                     <label for="Precio">Precio</label>
                                 </div>
+
+                            </div>
 
                             </div>
 
@@ -80,7 +82,7 @@
         </div>
 
 
-        <!-- row para listado de productos/inventario -->
+        <!-- Listado de productos-->
         <div class="row">
             <div class="col-lg-12">
                 <table id="tbl_productos" class="table table-striped w-100 shadow">
@@ -90,8 +92,8 @@
                             <th>ID Producto</th>
                             <th>Nombre Producto</th>
                             <th>Precio Producto</th>
-                            <th>Id Proveedor</th>
-                            <th>Nombre Proveedor</th>
+                            <th>Categoría</th>
+                            <th>Proveedor</th>
                             <th>Fecha Creación</th>
                             <th class="text-cetner">Opciones</th>
                         </tr>
@@ -101,10 +103,10 @@
                 </table>
             </div>
         </div>
+        <!-- Listado de productos-->
 
-    </div><!-- /.container-fluid -->
+    </div>
 </div>
-<!-- /.content -->
 
 <!-- VENTANA MODAL PARA AGREGAR PRODUCTO -->
 <div class="modal fade" id="mdlAgregarProducto" role="dialog">
@@ -126,7 +128,7 @@
                 <form class="needs-validation" novalidate>
                     <div class="row">
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group mb-2">
                                 <label class="" for="iptNombreProducto"><i class="fas fa-file-signature fs-6"></i>
                                     <span class="small">Nombre Del Producto</span><span class="text-danger">*</span>
@@ -137,7 +139,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group mb-2">
                                 <label class="" for="iptPrecioProducto"><i class="fas fa-dollar-sign fs-6"></i>
                                     <span class="small">Precio Del Producto</span><span class="text-danger">*</span>
@@ -148,7 +150,19 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                                <label class="" for="selCategoria"><i class="fas fa-dumpster fs-6"></i>
+                                    <span class="small">Categoría</span><span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    id="selCategoria" required>
+                                </select>
+                                <div class="invalid-feedback">Seleccione Una Categoría</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
                             <div class="form-group mb-2">
                                 <label class="" for="selProveedor"><i class="fas fa-dumpster fs-6"></i>
                                     <span class="small">Proveedor</span><span class="text-danger">*</span>
@@ -195,34 +209,47 @@
                         <div class="col-lg-4">
                             <div class="form-group mb-2">
 
-                                <input type="hidden" id="ipt_ID_Producto" value="">
-                                <label class="" for="iptNombreProducto2"><i class="fas fa-file-signature fs-6"></i>
+                            <div class="col-lg-4">
+                            <div class="form-group mb-6">
+                                <label class="" for="iptNombreProducto"><i class="fas fa-file-signature fs-6"></i>
                                     <span class="small">Nombre Del Producto</span><span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" id="iptNombreProducto2"
+                                <input type="text" class="form-control form-control-sm" id="iptNombreProducto"
                                     placeholder="Nombre Del Producto" required>
                                 <div class="invalid-feedback">Ingrese El Nombre Del Producto</div>
                             </div>
                         </div>
 
                         <div class="col-lg-4">
-                            <div class="form-group mb-2">
-                                <label class="" for="iptPrecioProducto2"><i class="fas fa-dollar-sign fs-6"></i>
+                            <div class="form-group mb-6">
+                                <label class="" for="iptPrecioProducto"><i class="fas fa-dollar-sign fs-6"></i>
                                     <span class="small">Precio Del Producto</span><span class="text-danger">*</span>
                                 </label>
                                 <input type="number" min="50" class="form-control form-control-sm"
-                                    id="iptPrecioProducto2" placeholder="Precio Del Producto" required>
+                                    id="iptPrecioProducto" placeholder="Precio Del Producto" required>
                                 <div class="invalid-feedback">Ingrese El Precio Del Producto</div>
                             </div>
                         </div>
 
                         <div class="col-lg-4">
-                            <div class="form-group mb-2">
-                                <label class="" for="selProveedor2"><i class="fas fa-dumpster fs-6"></i>
+                            <div class="form-group mb-6">
+                                <label class="" for="selCategoria2"><i class="fas fa-dumpster fs-6"></i>
+                                    <span class="small">Categoría</span><span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    id="selCategoria2" required>
+                                </select>
+                                <div class="invalid-feedback">Seleccione Una Categoría</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group mb-6">
+                                <label class="" for="selProveedor"><i class="fas fa-dumpster fs-6"></i>
                                     <span class="small">Proveedor</span><span class="text-danger">*</span>
                                 </label>
                                 <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                                    id="selProveedor2" required>
+                                    id="selProveedor" required>
                                 </select>
                                 <div class="invalid-feedback">Seleccione Un Proveedor</div>
                             </div>
@@ -287,6 +314,26 @@
 
                 $("#selProveedor").append(options);
                 $("#selProveedor2").append(options);
+
+            }
+        });
+
+        $.ajax({
+            url: "ajax/categorias.ajax.php",
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function (respuesta) {
+
+                var options = '<option selected value="">Seleccione Una Categoría</option>';
+
+                for (let index = 0; index < respuesta.length; index++) {
+                    options = options + '<option value=' + respuesta[index][0] + '>' + respuesta[index][1] + '</option>';
+                }
+
+                $("#selCategoria").append(options);
+                $("#selCategoria2").append(options);
 
             }
         });
@@ -360,20 +407,21 @@
             table.column($(this).data('index')).search(this.value).draw();
         })
 
-        $("#ID_Proveedor").keyup(function () {
-            table.column($(this).data('index')).search(this.value).draw();
-        })
-
         $("#Precio").keyup(function () {
             table.column($(this).data('index')).search(this.value).draw();
         })
+
+        $("#Categoria").keyup(function () {
+            table.column($(this).data('index')).search(this.value).draw();
+        })
+        
 
 
         $("#btnLimpiarBusqueda").on('click', function () {
 
             $("#ID_Producto").val('')
             $("#Nombre_Producto").val('')
-            $("#ID_Proveedor").val('')
+            $("#Categoria").val('')
             $("#Proveedor").val('')
             $("#Precio").val('')
 
@@ -417,6 +465,7 @@
                         datos.append("Nombre", $("#iptNombreProducto").val());
                         datos.append("Precio", $("#iptPrecioProducto").val());
                         datos.append("ID_Proveedor", $("#selProveedor").val());
+                        datos.append("ID_Categoria", $("#selCategoria").val());
 
                         if (accion == 2) {
                             var titulo_msj = "El Producto Se Agrego Correctamente"
@@ -444,6 +493,7 @@
                                     $("#iptNombreProducto").val("");
                                     $("#iptPrecioProducto").val("");
                                     $("#selProveedor").val(0);
+                                    $("#selCategoria").val(0);
 
                                 } else {
                                     Toast.fire({
@@ -498,7 +548,7 @@
 
                         $.ajax({
                             url: "ajax/productos.ajax.php",
-                            method: "POST",
+                            method: "GET",
                             data: datos,
                             cache: false,
                             contentType: false,

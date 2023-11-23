@@ -6,7 +6,7 @@
         }
 
         static public function ctrListarProveedores2(){
-            $proveedores2 = ProveedoresModelo::mdlListarProductos2();
+            $proveedores2 = ProveedoresModelo::mdlListarProveedores2();
             return $proveedores2;
         }
 

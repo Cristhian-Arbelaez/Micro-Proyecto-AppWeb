@@ -7,9 +7,9 @@
             return $productos;
         }
 
-        static public function ctrAgregarProducto($Nombre, $Precio, $ID_Proveedor){
+        static public function ctrAgregarProducto($Nombre, $Precio, $ID_Proveedor, $ID_Categoria){
 
-            $registroproducto = ProductosModelo::mdlAgregarProducto($Nombre, $Precio, $ID_Proveedor);
+            $registroproducto = ProductosModelo::mdlAgregarProducto($Nombre, $Precio, $ID_Proveedor, $ID_Categoria);
             
             return $registroproducto;
         }

@@ -7,6 +7,7 @@ class AjaxProductos
     public $Nombre;
     public $Precio;
     public $ID_Proveedor;
+    public $ID_Categoria;
 
     public $id_producto;
     public $nombre_producto;
@@ -26,7 +27,7 @@ class AjaxProductos
     public function ajaxAgregarProducto()
     {
 
-        $producto = ProductosControlador::ctrAgregarProducto($this->Nombre, $this->Precio, $this->ID_Proveedor);
+        $producto = ProductosControlador::ctrAgregarProducto($this->Nombre, $this->Precio, $this->ID_Proveedor, $this->ID_Categoria);
 
         echo json_encode($producto);
     }
@@ -51,14 +52,15 @@ if (isset($_POST["accion"]) && $_POST["accion"] == "1") {
     $agregarProducto->Nombre = $_POST["Nombre"];
     $agregarProducto->Precio = $_POST["Precio"];
     $agregarProducto->ID_Proveedor = $_POST["ID_Proveedor"];
+    $agregarProducto->ID_Categoria = $_POST["ID_Categoria"];
     $agregarProducto->ajaxAgregarProducto();
 
-} else if (isset($_POST["accion"]) && $_POST["accion"] == "3") {
+} else if (isset($_GET["accion"]) && $_GET["accion"] == "3") {
     $actualizarProducto = new AjaxProductos();
-    $actualizarProducto->id_producto = $_POST["ID_Producto"];
-    $actualizarProducto->Nombre = $_POST["Nombre"];
-    $actualizarProducto->Precio = $_POST["Precio"];
-    $actualizarProducto->ID_Proveedor = $_POST["ID_Proveedor"];
+    $actualizarProducto->id_producto = $_GET["ID_Producto"];
+    $actualizarProducto->Nombre = $_GET["Nombre"];
+    $actualizarProducto->Precio = $_GET["Precio"];
+    $actualizarProducto->ID_Proveedor = $_GET["ID_Proveedor"];
     $actualizarProducto->ajaxActualizarProducto();
 }
 
